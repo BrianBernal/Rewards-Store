@@ -1,7 +1,9 @@
+import "./page-title.scss";
+
 function PageTitle({ title, image }) {
   return (
-    <div>
-      <h1>{title}</h1>
+    <div className="page-title">
+      <h1 className="container title">{title}</h1>
     </div>
   );
 }

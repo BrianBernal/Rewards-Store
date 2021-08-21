@@ -1,0 +1,17 @@
+@import "../../sass/variables";
+
+.page-title {
+  background: #15dbff url("../../assets/images/header-x1.png") 30vw 0 / auto
+    35vh no-repeat;
+  height: 30vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  .title {
+    color: $strong-text;
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+}

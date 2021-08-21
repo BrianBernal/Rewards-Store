@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: #ffffff;
+  padding: 0 2rem;
+
+  img {
+    width: 38.77px;
+    height: 36px;
+  }
+
+  .right-section {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin: 0 2rem;
+    }
+
+    .score {
+      background-color: #ededed;
+      border-radius: 20.5px;
+      padding: 13px;
+      height: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        margin: 0 7px;
+      }
+    }
+  }
+}
