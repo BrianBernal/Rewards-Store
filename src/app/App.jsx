@@ -8,11 +8,14 @@ import "../sass/_variables.scss";
 
 // components
 import Home from "../pages/home/Home";
+import AppProvider from "../context/AppProvider";
 
 function App() {
   return (
     <StrictMode>
-      <Home />
+      <AppProvider>
+        <Home />
+      </AppProvider>
     </StrictMode>
   );
 }
