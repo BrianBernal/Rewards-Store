@@ -6,17 +6,26 @@
   background-color: #ffffff;
   padding: 0 2rem;
 
-  img {
-    width: 38.77px;
-    height: 36px;
+  .link-logo {
+    display: flex;
+    padding: 6px;
+    border-radius: 13px;
+
+    img {
+      width: 38.77px;
+      height: 36px;
+    }
   }
 
   .right-section {
     display: flex;
     align-items: center;
 
-    span {
-      margin: 0 2rem;
+    .name {
+      display: block;
+      margin: 0 1rem;
+      padding: 6px;
+      border-radius: 13px;
     }
 
     .score {

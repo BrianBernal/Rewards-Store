@@ -1,6 +1,7 @@
-// react
+// libraries
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
+import { Link } from "react-router-dom";
 
 // styles
 import "./header.scss";
@@ -31,15 +32,19 @@ function Header() {
   }, []);
   return (
     <header className="header">
-      <img src={logo} alt="company logo" />
+      <Link to="/" className="link-logo">
+        <img src={logo} alt="company logo" />
+      </Link>
       <div className="right-section">
         {success.ok && (
           <>
-            <span>{success.res.name || "..."}</span>
-            <div className="score">
+            <Link to="/history" className="name">
+              {success.res.name || "..."}
+            </Link>
+            <Link to="/getPoints" className="score">
               <span>{availableCoins}</span>
               <img src={coin} alt="coin" />
-            </div>
+            </Link>
           </>
         )}
         {loading && <Loader />}

@@ -1,17 +1,12 @@
-import Header from "../../components/header/Header";
-import PageTitle from "../../components/pageTitle/PageTitle";
+// components
 import SimpleFilter from "../../components/simpleFilter/SimpleFilter";
 
 function Home() {
   return (
-    <>
-      <Header />
-      <PageTitle title="Electronics" />
-      <div>
-        <span>sort by: </span>
-        <SimpleFilter text="Most recent" />
-      </div>
-    </>
+    <div>
+      <span>sort by: </span>
+      <SimpleFilter text="Most recent" />
+    </div>
   );
 }
 
