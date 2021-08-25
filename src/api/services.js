@@ -10,9 +10,22 @@ const INIT = {
   },
 };
 
+function serviceObject(endpoint, initObj) {
+  this.endpoint = endpoint;
+  this.initObj = initObj;
+}
+
 export function getProfile() {
-  return {
-    endpoint: `${BASE_URL}user/me`,
-    initObj: { ...INIT },
+  return new serviceObject(`${BASE_URL}user/me`, { ...INIT });
+}
+
+// amount must be a number
+export function setPoints(amount) {
+  if (isNaN(amount)) throw Error("Incorrect amount.");
+  const body = JSON.stringify({ amount });
+  const initObj = {
+    body,
+    method: "POST",
   };
+  return new serviceObject(`${BASE_URL}user/points`, { ...INIT, ...initObj });
 }

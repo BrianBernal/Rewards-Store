@@ -1,5 +1,5 @@
 // libraries
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 
@@ -23,6 +23,7 @@ function Header() {
     state: { availableCoins },
     setAvailableCoins,
   } = useContext(AppContext);
+  const [fallen, setFallen] = useState(0);
 
   useEffect(() => {
     fetchService(getProfile(), (data) => {
@@ -30,6 +31,12 @@ function Header() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // animation: https://dev.to/samwatts98/how-to-easily-animate-your-react-components-on-click-with-css-keyframes-26mg
+  useEffect(() => {
+    setFallen(1);
+  }, [availableCoins]);
+
   return (
     <header className="header">
       <Link to="/" className="link-logo">
@@ -42,7 +49,13 @@ function Header() {
               {success.res.name || "..."}
             </Link>
             <Link to="/getPoints" className="score">
-              <span>{availableCoins}</span>
+              <span
+                className="coins-number"
+                onAnimationEnd={() => setFallen(0)}
+                fallen={fallen}
+              >
+                {availableCoins}
+              </span>
               <img src={coin} alt="coin" />
             </Link>
           </>

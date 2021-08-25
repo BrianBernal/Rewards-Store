@@ -14,12 +14,14 @@
     img {
       width: 38.77px;
       height: 36px;
+      transition: inherit;
     }
   }
 
   .right-section {
     display: flex;
     align-items: center;
+    transition: width;
 
     .name {
       display: block;
@@ -37,9 +39,29 @@
       justify-content: space-between;
       align-items: center;
 
+      .coins-number[fallen="1"] {
+        animation-duration: 1s;
+        animation-name: fallenDown;
+        animation-iteration-count: unset;
+      }
+
       span {
         margin: 0 7px;
       }
     }
+  }
+}
+
+@keyframes fallenDown {
+  from {
+    margin-bottom: 100%;
+    opacity: 0;
+    font-size: 2rem;
+  }
+
+  to {
+    margin-top: 0%;
+    opacity: 1;
+    font-size: 1rem;
   }
 }
