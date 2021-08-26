@@ -29,3 +29,7 @@ export function setPoints(amount) {
   };
   return new serviceObject(`${BASE_URL}user/points`, { ...INIT, ...initObj });
 }
+
+export function getProducts() {
+  return new serviceObject(`${BASE_URL}products`, { ...INIT });
+}

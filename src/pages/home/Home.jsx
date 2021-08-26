@@ -1,12 +1,14 @@
 // components
 import SimpleFilter from "../../components/simpleFilter/SimpleFilter";
+import Products from "./products/Products";
 
 function Home() {
   return (
-    <div>
+    <>
       <span>sort by: </span>
       <SimpleFilter text="Most recent" />
-    </div>
+      <Products />
+    </>
   );
 }
 

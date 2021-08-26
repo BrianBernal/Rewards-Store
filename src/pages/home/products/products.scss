@@ -1,0 +1,42 @@
+@import "../../../sass/variables";
+$card-size: 276px;
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($card-size, 1fr));
+  grid-auto-rows: minmax($card-size, auto);
+  gap: 24px;
+  justify-content: center;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    background-color: #ffffff;
+    position: relative;
+
+    .img-availability {
+      align-self: flex-end;
+      position: relative;
+      bottom: calc(100% - 30px);
+      left: 12px;
+    }
+
+    .img-product {
+      width: 100%;
+      border-bottom: 1px solid $secondary-text;
+      margin-bottom: 1rem;
+    }
+
+    .text {
+      align-self: flex-start;
+      font-size: calc(0.5rem + 6px);
+    }
+
+    .category {
+      font-size: calc(0.5rem + 4px);
+      color: $secondary-text;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const INITIAL_ERROR = { isDetected: false, error: null };
-const INITIAL_SUCCESS = { ok: false, res: {} };
+const INITIAL_SUCCESS = { ok: false, res: null };
 
 function useFetch() {
   const [error, setError] = useState(INITIAL_ERROR);

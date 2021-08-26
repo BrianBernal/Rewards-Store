@@ -3,6 +3,7 @@
   width: auto;
   height: auto;
   margin: 0 auto;
+  width: max-content;
 }
 
 .lds-dual-ring:after {
