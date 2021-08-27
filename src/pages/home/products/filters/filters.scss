@@ -1,0 +1,55 @@
+@import "../../../../sass/variables";
+
+.loader-margin {
+  margin: 2rem auto;
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1rem 0;
+  margin-top: 2.5rem;
+  border-bottom: solid 1px $border-grey;
+
+  & > * {
+    margin-right: 1rem;
+    color: $secondary-text;
+    margin-bottom: 0.5rem;
+  }
+
+  & :last-child {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .page {
+    color: $primary-text;
+    padding-right: 1rem;
+    border-right: solid 1px $border-grey;
+  }
+
+  .subtitle {
+    color: $secondary-text;
+  }
+
+  .filter-button {
+    border-radius: 20.5px;
+    background-color: $dark-grey;
+    padding: 0.5rem 1rem;
+    border: none;
+    color: $secondary-text;
+  }
+
+  .selected-button {
+    background-color: $blue;
+    color: #ffffff;
+  }
+
+  .pagination-button {
+    border-radius: 50%;
+    background-color: transparent;
+    border: solid 1px $border-grey;
+    margin-left: 1rem;
+  }
+}

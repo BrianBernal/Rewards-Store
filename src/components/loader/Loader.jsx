@@ -1,8 +1,8 @@
 // styles
 import "./loader.css";
 
-function Loader() {
-  return <div className="lds-dual-ring"></div>;
+function Loader({ customClass = "" }) {
+  return <div className={`lds-dual-ring ${customClass}`}></div>;
 }
 
 export default Loader;

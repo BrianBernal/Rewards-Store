@@ -7,6 +7,7 @@ $card-size: 276px;
   grid-auto-rows: minmax($card-size, auto);
   gap: 24px;
   justify-content: center;
+  margin: 2rem 0;
 
   .card {
     display: flex;
@@ -15,17 +16,12 @@ $card-size: 276px;
     padding: 24px;
     background-color: #ffffff;
     position: relative;
-
-    .img-availability {
-      align-self: flex-end;
-      position: relative;
-      bottom: calc(100% - 30px);
-      left: 12px;
-    }
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: display 0.3s;
 
     .img-product {
       width: 100%;
-      border-bottom: 1px solid $secondary-text;
+      border-bottom: 1px solid $border-grey;
       margin-bottom: 1rem;
     }
 
@@ -37,6 +33,13 @@ $card-size: 276px;
     .category {
       font-size: calc(0.5rem + 4px);
       color: $secondary-text;
+    }
+
+    .img-availability {
+      align-self: flex-end;
+      position: relative;
+      bottom: calc(100% - 30px);
+      left: 12px;
     }
   }
 }

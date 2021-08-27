@@ -1,3 +1,5 @@
+@import "../../sass/variables";
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -31,7 +33,7 @@
     }
 
     .score {
-      background-color: #ededed;
+      background-color: $dark-grey;
       border-radius: 20.5px;
       padding: 13px;
       height: 2rem;
