@@ -10,7 +10,7 @@
   align-items: center;
   margin: 1rem 0;
   margin-top: 2.5rem;
-  border-bottom: solid 1px $border-grey;
+  border-bottom: $border-grey;
 
   & > * {
     margin-right: 1rem;
@@ -26,7 +26,7 @@
   .page {
     color: $primary-text;
     padding-right: 1rem;
-    border-right: solid 1px $border-grey;
+    border-right: $border-grey;
   }
 
   .subtitle {
@@ -49,7 +49,7 @@
   .pagination-button {
     border-radius: 50%;
     background-color: transparent;
-    border: solid 1px $border-grey;
+    border: $border-grey;
     margin-left: 1rem;
   }
 }

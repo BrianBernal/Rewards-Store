@@ -56,3 +56,12 @@ button:hover {
   box-shadow: 0 0 2px #888888;
   cursor: pointer;
 }
+
+button:disabled {
+  opacity: 0.4;
+
+  &:hover {
+    cursor: initial;
+    box-shadow: none;
+  }
+}

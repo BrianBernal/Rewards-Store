@@ -56,13 +56,13 @@
 
 @keyframes fallenDown {
   from {
-    margin-bottom: 100%;
+    transform: translateY(-2rem);
     opacity: 0;
     font-size: 2rem;
   }
 
   to {
-    margin-top: 0%;
+    transform: translateY(0);
     opacity: 1;
     font-size: 1rem;
   }
