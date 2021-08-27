@@ -1,16 +1,16 @@
 // react
 import { useContext } from "react";
-import { AppContext } from "../../../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 // hooks
-import useFetch from "../../../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 // styles
 import "./square-button.scss";
 
 // components
-import Loader from "../../../components/loader/Loader";
-import { setPoints } from "../../../api/services";
+import Loader from "../loader/Loader";
+import { setPoints } from "../../api/services";
 
 function SquareButton({ points }) {
   const { error, loading, fetchService } = useFetch();

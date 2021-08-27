@@ -1,5 +1,5 @@
 // components
-import Products from "./products/Products";
+import Products from "../../components/products/Products";
 
 function Home() {
   return <Products />;

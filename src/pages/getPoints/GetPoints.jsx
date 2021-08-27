@@ -2,7 +2,7 @@
 import "./get-points.scss";
 
 // components
-import SquareButton from "./squareButton/SquareButton";
+import SquareButton from "../../components/squareButton/SquareButton";
 
 function GetPoints() {
   return (

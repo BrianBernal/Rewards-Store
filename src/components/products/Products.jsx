@@ -1,30 +1,30 @@
 // react
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // services
-import { getProducts } from "../../../api/services";
-import Loader from "../../../components/loader/Loader";
-import useFetch from "../../../hooks/useFetch";
+import { getProducts } from "../../api/services";
+import Loader from "../loader/Loader";
+import useFetch from "../../hooks/useFetch";
 
 // styles
 import "./products.scss";
-import buyBlue from "../../../assets/icons/buy-blue.svg";
+import buyBlue from "../../assets/icons/buy-blue.svg";
 import Filters from "./filters/Filters";
 
 const UNDEFINED = "...";
 
 function Products() {
-  const { success, error, loading, fetchService } = useFetch();
-  const dataProducts = success.res || [];
+  const { error, loading, fetchService } = useFetch();
+  const [dataProducts, setDataProducts] = useState([]);
 
   useEffect(() => {
-    fetchService(getProducts());
+    fetchService(getProducts(), (res) => setDataProducts(res));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <Filters />
+      <Filters products={dataProducts} setProducts={setDataProducts} />
       {loading && <Loader customClass="loader-margin" />}
       <div className="products-container">
         {dataProducts.map(
@@ -33,16 +33,17 @@ function Products() {
             category = UNDEFINED,
             cost = UNDEFINED,
             img = {},
+            _id,
           }) => {
             const { url = null, hdUrl = null } = img;
             return (
-              <div className="card">
+              <div className="card" key={_id + name}>
                 <img src={hdUrl || url} alt={name} className="img-product" />
                 <span className="text">{name}</span>
                 <span className="text category">{category}</span>
                 <img
                   src={buyBlue}
-                  alt="puntos suficientes"
+                  alt="enough points"
                   className="img-availability"
                 />
                 {/* <span>{cost}</span> */}
