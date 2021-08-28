@@ -18,7 +18,20 @@ const UNDEFINED = "...";
 function Products() {
   const { success, error, loading, fetchService } = useFetch();
   const [dataProducts, setDataProducts] = useState([]);
+  const [page, setPage] = useState(0);
   const res = success.res || [];
+
+  // prettier-ignore
+  const range = {
+    from: page <= 0 ? 0 : 16 * page,
+    to: 16 * (page + 1),
+  }
+
+  const pagination = {
+    page,
+    setPage,
+    range,
+  };
 
   useEffect(() => {
     fetchService(getProducts(), (res) => {
@@ -30,36 +43,38 @@ function Products() {
   return (
     <>
       <Filters
-        products={dataProducts}
         setProducts={setDataProducts}
         originProducts={res}
+        pagination={pagination}
       />
       {loading && <Loader customClass="loader-margin" />}
       <div className="products-container">
-        {dataProducts.map(
-          ({
-            name = UNDEFINED,
-            category = UNDEFINED,
-            cost = UNDEFINED,
-            img = {},
-            _id,
-          }) => {
-            const { url = null, hdUrl = null } = img;
-            return (
-              <div className="card" key={_id + name}>
-                <img
-                  src={buyBlue}
-                  alt="enough points"
-                  className="img-availability"
-                />
-                <img src={hdUrl || url} alt={name} className="img-product" />
-                <span className="text category">{category}</span>
-                <span className="text">{name}</span>
-                {/* <span>{cost}</span> */}
-              </div>
-            );
-          }
-        )}
+        {dataProducts
+          .slice(range.from, range.to)
+          .map(
+            ({
+              name = UNDEFINED,
+              category = UNDEFINED,
+              cost = UNDEFINED,
+              img = {},
+              _id,
+            }) => {
+              const { url = null, hdUrl = null } = img;
+              return (
+                <div className="card" key={_id + name}>
+                  <img
+                    src={buyBlue}
+                    alt="enough points"
+                    className="img-availability"
+                  />
+                  <img src={hdUrl || url} alt={name} className="img-product" />
+                  <span className="text category">{category}</span>
+                  <span className="text">{name}</span>
+                  {/* <span>{cost}</span> */}
+                </div>
+              );
+            }
+          )}
         {error.isDetected && <p>{error.error}</p>}
       </div>
     </>

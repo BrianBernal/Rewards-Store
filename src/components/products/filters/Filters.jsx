@@ -30,9 +30,16 @@ const INITIAL_SORTS = {
 };
 
 function Filters({
-  products = [],
   setProducts = () => {},
   originProducts = [],
+  pagination = {
+    page: 1,
+    setPage: () => {},
+    range: {
+      from: 0,
+      to: 0,
+    },
+  },
 }) {
   const [activeSorts, setActiveSorts] = useState(INITIAL_SORTS);
 
@@ -57,7 +64,9 @@ function Filters({
 
   return (
     <div className="filters-container">
-      <span className="page">16 of {products.length}</span>
+      <span className="page">
+        {pagination.range.to} of {originProducts.length}
+      </span>
       <span className="subtitle">Sort by:</span>
       <button
         id="byCategory"
@@ -90,8 +99,22 @@ function Filters({
         Highest price
       </button>
       <div>
-        <button className="filter-button pagination-button">{"<"}</button>
-        <button className="filter-button pagination-button">{">"}</button>
+        {pagination.range.from > 0 && (
+          <button
+            onClick={() => pagination.setPage((page) => page - 1)}
+            className="filter-button pagination-button"
+          >
+            {"<"}
+          </button>
+        )}
+        {pagination.range.to < originProducts.length - 1 && (
+          <button
+            onClick={() => pagination.setPage((page) => page + 1)}
+            className="filter-button pagination-button"
+          >
+            {">"}
+          </button>
+        )}
       </div>
     </div>
   );

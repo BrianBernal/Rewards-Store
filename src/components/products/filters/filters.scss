@@ -25,12 +25,14 @@
 
   .page {
     color: $primary-text;
-    padding-right: 1rem;
-    border-right: $border-grey;
+    margin-right: 0;
   }
 
   .subtitle {
     color: $secondary-text;
+    padding-left: 1rem;
+    margin-left: 1rem;
+    border-left: $border-grey;
   }
 
   .filter-button {
