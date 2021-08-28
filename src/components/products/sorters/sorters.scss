@@ -1,0 +1,23 @@
+@import "../../sass/variables";
+
+.subtitle {
+  color: $secondary-text;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-left: $border-grey;
+}
+
+.sort-button {
+  border-radius: 20.5px;
+  background-color: $dark-grey;
+  padding: 0.5rem 1rem;
+  border: none;
+  color: $secondary-text;
+  margin-right: 1rem;
+}
+
+.selected-button {
+  background-color: $blue;
+  color: #ffffff;
+}

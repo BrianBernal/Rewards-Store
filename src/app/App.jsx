@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // styles
 import "./App.scss";
-import "../sass/_utils.scss";
+import "../sass/_keyframes.scss";
 
 // components
 import AppProvider from "../context/AppProvider";

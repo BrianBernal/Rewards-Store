@@ -1,6 +1,6 @@
 // styles
 import { useEffect, useState } from "react";
-import "./filters.scss";
+import "./sorters.scss";
 
 const sortTask = {
   lowest: (list) =>
@@ -29,18 +29,7 @@ const INITIAL_SORTS = {
   byCategory: false,
 };
 
-function Filters({
-  setProducts = () => {},
-  originProducts = [],
-  pagination = {
-    page: 1,
-    setPage: () => {},
-    range: {
-      from: 0,
-      to: 0,
-    },
-  },
-}) {
+function Sorters({ setProducts = () => {}, originProducts = [] }) {
   const [activeSorts, setActiveSorts] = useState(INITIAL_SORTS);
 
   const handlerPriceSorting = ({ target }) => {
@@ -63,16 +52,13 @@ function Filters({
   }, [activeSorts]);
 
   return (
-    <div className="filters-container">
-      <span className="page">
-        {pagination.range.to} of {originProducts.length}
-      </span>
+    <>
       <span className="subtitle">Sort by:</span>
       <button
         id="byCategory"
         onClick={handlerPriceSorting}
         disabled={originProducts.length < 1}
-        className={`filter-button${
+        className={`sort-button${
           activeSorts.byCategory ? " selected-button" : ""
         }`}
       >
@@ -82,9 +68,7 @@ function Filters({
         id="lowest"
         onClick={handlerPriceSorting}
         disabled={originProducts.length < 1}
-        className={`filter-button${
-          activeSorts.lowest ? " selected-button" : ""
-        }`}
+        className={`sort-button${activeSorts.lowest ? " selected-button" : ""}`}
       >
         Lowest price
       </button>
@@ -92,32 +76,14 @@ function Filters({
         id="highest"
         onClick={handlerPriceSorting}
         disabled={originProducts.length < 1}
-        className={`filter-button${
+        className={`sort-button${
           activeSorts.highest ? " selected-button" : ""
         }`}
       >
         Highest price
       </button>
-      <div>
-        {pagination.range.from > 0 && (
-          <button
-            onClick={() => pagination.setPage((page) => page - 1)}
-            className="filter-button pagination-button"
-          >
-            {"<"}
-          </button>
-        )}
-        {pagination.range.to < originProducts.length - 1 && (
-          <button
-            onClick={() => pagination.setPage((page) => page + 1)}
-            className="filter-button pagination-button"
-          >
-            {">"}
-          </button>
-        )}
-      </div>
-    </div>
+    </>
   );
 }
 
-export default Filters;
+export default Sorters;

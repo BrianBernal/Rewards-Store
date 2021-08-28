@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 // services
 import { getProducts } from "../../api/services";
-import Loader from "../loader/Loader";
 import useFetch from "../../hooks/useFetch";
 
 // styles
@@ -11,7 +10,10 @@ import "./products.scss";
 import buyBlue from "../../assets/icons/buy-blue.svg";
 
 // components
-import Filters from "./filters/Filters";
+import Loader from "../loader/Loader";
+import Sorters from "./sorters/Sorters";
+import PageIndicator from "./pageIndicator/PageIndicator";
+import Pagination from "./pagination/Pagination";
 
 const UNDEFINED = "...";
 
@@ -27,12 +29,6 @@ function Products() {
     to: 16 * (page + 1),
   }
 
-  const pagination = {
-    page,
-    setPage,
-    range,
-  };
-
   useEffect(() => {
     fetchService(getProducts(), (res) => {
       setDataProducts(res);
@@ -42,11 +38,16 @@ function Products() {
 
   return (
     <>
-      <Filters
-        setProducts={setDataProducts}
-        originProducts={res}
-        pagination={pagination}
-      />
+      <div className="sorters-container">
+        <PageIndicator current={range.to} total={res.length} />
+        <Sorters setProducts={setDataProducts} originProducts={res} />
+        <Pagination
+          from={range.from}
+          to={range.to}
+          setPage={setPage}
+          totalLength={res.length}
+        />
+      </div>
       {loading && <Loader customClass="loader-margin" />}
       <div className="products-container">
         {dataProducts
@@ -77,6 +78,17 @@ function Products() {
           )}
         {error.isDetected && <p>{error.error}</p>}
       </div>
+      {res.length > 0 && (
+        <div className="sorters-container">
+          <PageIndicator current={range.to} total={res.length} />
+          <Pagination
+            from={range.from}
+            to={range.to}
+            setPage={setPage}
+            totalLength={res.length}
+          />
+        </div>
+      )}
     </>
   );
 }

@@ -1,0 +1,8 @@
+@import "../../sass/variables";
+
+.pagination-button {
+  border-radius: 50%;
+  background-color: transparent;
+  border: $border-grey;
+  margin-left: 1rem;
+}

@@ -26,7 +26,7 @@ $shadow-size-button-2: (-$width-shadow) (-$width-shadow) $blur-radius;
     box-shadow: $shadow-size-button $primary-text,
       $shadow-size-button-2 $primary-text;
     border-color: $blue;
-    background-color: $blue - (30); // deprecated warning
+    background-color: #00b6dc;
     transform: translate(0, 5px);
     transition: transform 0.3s;
     .point-text,
