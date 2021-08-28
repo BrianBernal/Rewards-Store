@@ -23,7 +23,7 @@ function PageTitle() {
   return useMemo(() => {
     return (
       <div className="page-title">
-        <h1 className="container title">{getTitle(pathname)}</h1>
+        <h1 className="title">{getTitle(pathname)}</h1>
       </div>
     );
   }, [pathname]);

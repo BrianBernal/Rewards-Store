@@ -1,0 +1,13 @@
+%fallen-animation {
+  animation-duration: 1s;
+  animation-name: fallenDown;
+  animation-iteration-count: unset;
+}
+
+%container {
+  display: block;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}

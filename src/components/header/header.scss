@@ -1,4 +1,5 @@
 @import "../../sass/variables";
+@import "../../sass/placeholders";
 
 .header {
   display: flex;
@@ -42,28 +43,12 @@
       align-items: center;
 
       .coins-number[fallen="1"] {
-        animation-duration: 1s;
-        animation-name: fallenDown;
-        animation-iteration-count: unset;
+        @extend %fallen-animation;
       }
 
       span {
         margin: 0 7px;
       }
     }
-  }
-}
-
-@keyframes fallenDown {
-  from {
-    transform: translateY(-2rem);
-    opacity: 0;
-    font-size: 2rem;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-    font-size: 1rem;
   }
 }

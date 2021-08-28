@@ -1,0 +1,5 @@
+@import "../../sass/placeholders";
+
+.container {
+  @extend %container;
+}

@@ -1,7 +1,13 @@
-.container {
-  display: block;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 2rem;
+@keyframes fallenDown {
+  from {
+    transform: translateY(-2rem);
+    opacity: 0;
+    font-size: 2rem;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    font-size: 1rem;
+  }
 }

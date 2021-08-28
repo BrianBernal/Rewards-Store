@@ -1,4 +1,5 @@
 @import "../../sass/variables";
+@import "../../sass/placeholders";
 
 .page-title {
   background: #15dbff url("../../assets/images/header-x1.png") 30vw 0 / auto
@@ -9,6 +10,7 @@
   align-items: flex-end;
 
   .title {
+    @extend %container;
     color: $strong-text;
     font-size: 64px;
     font-weight: 700;

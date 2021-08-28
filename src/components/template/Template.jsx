@@ -1,3 +1,5 @@
+import "./template.scss";
+
 // components
 import Header from "../../components/header/Header";
 import PageTitle from "../../components/pageTitle/PageTitle";
