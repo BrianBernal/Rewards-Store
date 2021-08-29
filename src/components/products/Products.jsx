@@ -122,6 +122,7 @@ function Products() {
                     <button
                       className="redeem-button"
                       onClick={handlerRedeem(_id, cost)}
+                      disabled={lRedeem}
                     >
                       Redeem now
                       {lRedeem && <Loader />}

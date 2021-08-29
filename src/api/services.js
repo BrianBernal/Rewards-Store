@@ -43,3 +43,7 @@ export function setRedeem(productId) {
   };
   return new serviceObject(`${BASE_URL}redeem`, { ...INIT, ...initObj });
 }
+
+export function getHistory() {
+  return new serviceObject(`${BASE_URL}user/history`, { ...INIT });
+}

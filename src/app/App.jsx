@@ -13,6 +13,7 @@ import AppProvider from "../context/AppProvider";
 import Template from "../components/template/Template";
 import Home from "../pages/home/Home";
 import GetPoints from "../pages/getPoints/GetPoints";
+import History from "../pages/history/History";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/history">
-                <div>history</div>
+                <History />
               </Route>
               <Route exact path="/getPoints">
                 <GetPoints />

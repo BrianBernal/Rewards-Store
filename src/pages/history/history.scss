@@ -1,0 +1,38 @@
+@import "../../sass/placeholders";
+
+.container-history {
+  margin: 1rem auto;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  max-width: 1000px;
+  background-color: #ffffff;
+  align-items: center;
+  justify-items: center;
+  overflow-x: auto;
+
+  & > :not(.column-title):not(.one-row) {
+    @extend %fallen-animation;
+  }
+
+  .one-row {
+    grid-column: 1 / -1;
+    margin: 1rem;
+  }
+
+  .column-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .name {
+    display: block;
+    text-align: center;
+  }
+
+  .date {
+    max-width: 5rem;
+  }
+}
