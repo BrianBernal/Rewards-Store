@@ -93,14 +93,24 @@ function Products() {
               _id,
             }) => {
               const { url = null, hdUrl = null } = img;
+              const isEnoughPoints = availableCoins - cost >= 0;
               return (
                 <div className="cell">
                   <div className="card" key={_id + name}>
-                    <img
-                      src={buyBlue}
-                      alt="enough points"
-                      className="img-availability"
-                    />
+                    {isEnoughPoints ? (
+                      <img
+                        src={buyBlue}
+                        alt="enough points"
+                        className="img-availability"
+                      />
+                    ) : (
+                      <div className="needed">
+                        <span className="text-needed">
+                          You need {cost - availableCoins}
+                        </span>
+                        <img src={coin} alt="points" />
+                      </div>
+                    )}
                     <img
                       src={hdUrl || url}
                       alt={name}
@@ -109,25 +119,27 @@ function Products() {
                     <span className="text category">{category}</span>
                     <span className="text">{name}</span>
                   </div>
-                  <div className="card upon">
-                    <img
-                      src={buyWhite}
-                      alt="enough points"
-                      className="img-availability upon-image"
-                    />
-                    <div className="cost-container">
-                      <span className="coins-number">{cost}</span>
-                      <img src={coin} alt="coin" className="coin" />
+                  {isEnoughPoints && (
+                    <div className="card upon">
+                      <img
+                        src={buyWhite}
+                        alt="enough points"
+                        className="img-availability upon-image"
+                      />
+                      <div className="cost-container">
+                        <span className="coins-number">{cost}</span>
+                        <img src={coin} alt="coin" className="coin" />
+                      </div>
+                      <button
+                        className="redeem-button"
+                        onClick={handlerRedeem(_id, cost)}
+                        disabled={lRedeem}
+                      >
+                        Redeem now
+                        {lRedeem && <Loader />}
+                      </button>
                     </div>
-                    <button
-                      className="redeem-button"
-                      onClick={handlerRedeem(_id, cost)}
-                      disabled={lRedeem}
-                    >
-                      Redeem now
-                      {lRedeem && <Loader />}
-                    </button>
-                  </div>
+                  )}
                 </div>
               );
             }

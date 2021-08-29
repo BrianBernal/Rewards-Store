@@ -63,6 +63,29 @@ $card-size: 276px;
         z-index: 1;
       }
 
+      .needed {
+        padding: 5px 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: #616161, $alpha: 0.8);
+        border-radius: 100px;
+        z-index: 3;
+        align-self: flex-end;
+        left: 12px;
+        bottom: 0;
+
+        & > * {
+          position: initial;
+        }
+
+        .text-needed {
+          font-size: 14px;
+          color: #ffffff;
+          margin-right: 6px;
+        }
+      }
+
       .img-product {
         width: 100%;
         border-bottom: $border-grey;
