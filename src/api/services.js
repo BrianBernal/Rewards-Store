@@ -33,3 +33,13 @@ export function setPoints(amount) {
 export function getProducts() {
   return new serviceObject(`${BASE_URL}products`, { ...INIT });
 }
+
+// amount must be a string
+export function setRedeem(productId) {
+  const body = JSON.stringify({ productId });
+  const initObj = {
+    body,
+    method: "POST",
+  };
+  return new serviceObject(`${BASE_URL}redeem`, { ...INIT, ...initObj });
+}

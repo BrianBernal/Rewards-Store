@@ -1,0 +1,63 @@
+@import "../../sass/placeholders";
+
+$error-color: #ee8d9b;
+$success-color: #b1dc7d;
+
+.bg-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 22;
+
+  .modal {
+    width: auto;
+    max-width: 600px;
+    max-height: 50vh;
+    padding: 2rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: $success-color;
+    box-shadow: 5px 2px 2px #999999;
+    overflow-y: auto;
+    @extend %fallen-animation;
+
+    &[type="error"] {
+      background-color: $error-color;
+    }
+
+    .emoji {
+      font-size: 3rem;
+    }
+
+    .title {
+      color: #ffffff;
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+      margin: 1rem 0;
+    }
+
+    .ok-button {
+      border-radius: 50px;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      background-color: #ffffff;
+      color: $success-color;
+      border: none;
+      box-shadow: 5px 2px 2px #999999;
+      margin-top: 2rem;
+
+      &[type="error"] {
+        color: $error-color;
+      }
+    }
+  }
+}
