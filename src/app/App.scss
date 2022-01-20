@@ -65,3 +65,38 @@ button:disabled {
     box-shadow: none;
   }
 }
+
+
+// TODO: Create mixin file
+@mixin font-face-creator(
+  $font-family,
+  $font-base-filename,
+  $font-weight,
+  $font-style
+) {
+  @font-face {
+    font-family: $font-family;
+    src: url(#{$font-base-filename}.woff2) format("woff2");
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+$fonts-location: "../sass/fonts/";
+
+@include font-face-creator(
+  $font-family: "Inter",
+  $font-base-filename: "#{$fonts-location}/inter-v3-latin-bold",
+  $font-weight: normal,
+  $font-style: normal
+);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
